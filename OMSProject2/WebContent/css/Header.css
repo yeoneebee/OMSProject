@@ -81,13 +81,13 @@ text-align:center;
     text-align:center;
     
 }.topmenu ul{
- 	font-size: 28px;
+ 	font-size: 22px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
 }
 .topmenu #icon{
-    margin: 5 30 5 30;
+    margin: 12x 30px 12px 30px;
     font-size: 10px;
     width: 0%;
 }

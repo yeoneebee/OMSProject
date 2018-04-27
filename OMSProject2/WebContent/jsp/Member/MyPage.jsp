@@ -11,7 +11,9 @@
   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
   crossorigin="anonymous"></script>  
 <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">  
-<link rel="stylesheet" href="css/MyPage.css"> 
+<link rel="stylesheet" href="css/MyPage.css">
+<script type="text/javascript" src="jsp/Member/jquery-ui.min.js"></script> 
+
 <style type="text/css">
 #Myheader{
 	background-image: url('image/MyHeader.jpg');
@@ -101,6 +103,26 @@ $(document).ready(function(){
 	
 	var id= "<%= (String)session.getAttribute("id")%>";
 	
+	var menuPos = parseInt($('#MyMenuBox').css('top'));
+	
+	$(window).scroll(function(){
+		
+	var scrollTop = $(window).scrollTop();
+	var newPos = scrollTop + menuPos + "px";
+	
+	$('#MyMenuBox').stop().animate({
+		'top':newPos
+	},{
+		'duration' :500,
+		'easing': 'easeInOutBack',
+		'complete': function(){
+			console.log('이동완료');
+		}
+	});
+	
+}).scroll();
+
+	
 	$('#menu1').click(function(){
 		$('#contentSection').load("jsp/Member/MemberUpdateForm2.jsp");
 		init();
@@ -142,11 +164,15 @@ $(document).ready(function(){
 		<h1 class="p2"></h1>
 		</div>
 	</div>
+	<div class="">
+	
+	</div>
 	
 	<div id="MyContainer">
-		<div id="menuSection">
+		<div id="MenuSection">
+		<div class="MyMenuBox" id="MyMenuBox">
 		<div id="menuTitle">
-			<span>마이 페이지</span>		
+			<span>마이 페이지</span>	
 		</div>
 		<div id="menuList">
 		<ul>
@@ -157,7 +183,8 @@ $(document).ready(function(){
 			<li><a href="#" id="menu5">회원 탈퇴</a></li>
 		</ul>
 		</div>
-		</div> <!-- menuSection끝 -->
+		</div> <!-- MymenuBox끝 -->
+		</div>
 		<div id="contentSection">
 		
 		</div>
