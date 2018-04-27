@@ -98,13 +98,14 @@ input {
   background-color: #434A52;
 }
 .form--login input[type="submit"] {
-  background-color: #ea4c88;
-  color: #eee;
+  background-color: #ddf3fe;
+  color: #434A52;
   font-weight: bold;
   text-transform: uppercase;
 }
 .form--login input[type="submit"]:focus, .form--login input[type="submit"]:hover {
-  background-color: #d44179;
+  background-color: #5e83ba;
+  color:#eee;
 }
 .form__field {
   display: -webkit-box;

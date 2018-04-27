@@ -66,11 +66,12 @@ margin-right:25%;
 
 .topmenu{
 text-align:center;
-    border: 1px solid #9fdede45;
+    border: 1px solid #fafafd;
 	margin:0 auto;
 	height:60px;
-	background: #f1f1f1;
-	color:#bbbbbb82;
+	background: rgba(98, 192, 255, 0.1);
+	color:#7087a4;
+;
 }
 .topmenu li{
 	display: -webkit-inline-box;
@@ -80,7 +81,7 @@ text-align:center;
     text-align:center;
     
 }.topmenu ul{
- 	font-size: 35px;
+ 	font-size: 28px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
