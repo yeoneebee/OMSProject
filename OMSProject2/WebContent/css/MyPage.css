@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'LotteMartDream';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+body{
+ font-family: 'LotteMartDream';
+	margin:0;
+	padding:0;
+}
+
+ #MyPwrqpper{ 
+ 	width:100%; 
+ 	margin:0 auto; 
+ } 
+
+
+#Mytitle{
+	background-color: #000000; 
+	background: rgba(255, 255, 255, 0.5);
+    height: 75%;
+    vertical-align: middle;
+    top:12%;
+    position: relative;
+	 text-align: center;
+}
+.p2 {
+display: block;
+width: 100%;
+margin: 0 auto;
+word-break: break-all;
+padding-top: 4%;
+}
+
+h1 {
+	display: none;
+	margin:auto;
+    font-size: 90px;
+    color:#424242;
+    opacity:0.8;
+    font-family: 'Gloria Hallelujah', cursive;
+    
+}
+
+#MyContainer{
+	position:absolute;
+	width: 100%;
+	height:1100px;
+	
+}
+
+#menuTitle{
+display:inline-block;
+	width:100%;
+	height:10%;
+	text-align: center;
+	background-color: #53a9dc7a;
+	padding:10px 0px;
+}
+
+#menuTitle span{
+	font-size: 190%;
+	line-height: 85px;
+	color: #EFFBFB;
+}
+
+#menuList{
+	display:inline-block;
+	height:90%;
+	width:100%;
+	background-color: #F2F2F2;
+}
+
+#menuList ul{
+	list-style-type: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+#menuList li {
+	font-size: 20px;
+	margin: 25px 0;
+}
+
+#menuList li a{
+	color: #6E6E6E;
+	text-decoration: none;
+}
+
+#menuList li a:hover{
+	color: #FAFAFA;
+	background-color: #848484;
+}
+
+#menuSection{
+	margin: 0;
+	padding:0;
+	width: 16%;
+	height: 100%;
+	float: left;
+}
+
+#contentSection {
+	width:80%;
+	height:100%;
+	margin:0;
+	padding:0;
+	float:left;
+	
+}
