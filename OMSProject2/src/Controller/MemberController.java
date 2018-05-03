@@ -329,8 +329,10 @@ public class MemberController {
 		 CommentVO commt = new CommentVO(commt_content,id,photo_no,parent);
 		 Calendar calendar = Calendar.getInstance();
          java.util.Date date = calendar.getTime();
-         String today = (new SimpleDateFormat("yyyyMMddHHmmss").format(date));
+         String today = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
 
+         commt.setPHT_COMMT_CREATE_DATE(today);
+         
 		 photoSvc.insertComment(commt);
 		 JSONObject obj = new JSONObject();
 		 resp.setCharacterEncoding("UTF-8");

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <script type="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
 <script src="http://code.jquery.com/jquery-2.2.4.js"
@@ -14,9 +14,13 @@
 	crossorigin="anonymous"></script>
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-	<script src="Js/jquery.timeago.js" type="text/javascript"></script>
-<script src="Js/jquery.timeago.ko.js" type="text/javascript"></script> 
-<title>사진 뷰</title>
+	<script src="${pageContext.request.contextPath}/PlugIn/jquery.timeago.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/PlugIn/jquery.timeago.ko.js" type="text/javascript"></script> 
+	<script src="PlugIn/jquery.timeago.js" type="text/javascript"></script>
+<script src="PlugIn/jquery.timeago.ko.js" type="text/javascript"></script> 
+<link rel="stylesheet" href="css/Album.css">
+
+
 
 <style type="text/css">
 @font-face {
@@ -39,385 +43,7 @@ body {
 	padding: 0;
 }
 
-.pv_container{
-	top:60px;
-	position: absolute;
-	width: 100%;
-}
-.pv_body{
-	width:70%;
-	margin:0 auto;
-}
 
-.pv_header {
-	width: 100%;
-	position: fixed;
-	z-index: 999;
-	top: 0px;
-	left: 0px;
-	overflow: hidden;
-	clear: both;
-	border-bottom: 1px solid #E6E6E6;
-	background:white;
-}
-
-.pv_header button {
-	margin:10px 0px;
-	padding: 9px 55px;
-	background-color: white;
-	color: #919198;
-	border: 2px solid #919198;
-	letter-spacing: 2px;
-	outline: none;
-	cursor: pointer;
-	font-size : 17px;
-	font-weight: bold;
-	transition:800ms ease all;
-}
-
-.pv_header button:hover {
-	background-color: #919198;
-	color: white;
-}
-
-.pv_header #btnBx1 {
-	float: left;
-	display: inline-block;
-	margin-left:8%;
-}
-
-.pv_header #btnBx2 {
-	float: right;
-	display: ininline-block;
-	margin-right:1%;
-}
-
-.pv_header #btnBx3 {
-	float: right;
-	display: ininline-block;
-	margin-right:3%;
-	margin-left:0.8%;
-	
-}
-
-.pv_header #btnBx3 img {
- 	margin-top:12px; 
-}
-
-.pv_header #btnBx3 img:hover {
-	cursor:pointer;
-	opicity:0.5;
-}
-
-
-
-.pv_header #logoBx{
-	margin:0 auto;
-	width:52%;
-	display: inline-block;
-	text-align: center;
-	color:#46CCFF;
-}
-
-.pv_header #logoBx img{
-	margin-top: 17px;
-	position:relative;
-}
-
-#pht_title{
-	width:92%;
-	margin:5px auto;
-	padding:3px 0px;
-	background: #f5fbf9;
-}
-
-#pht_title_deco{
-	border:1px solid #F2F2F2;
-	margin-bottom: 10px;
-}
-
-#pht_title h2{
-	color:#919198;
-}
-
-#pht_no {
-	font-size: 18px;
-	text-align:right;
-	display: inline-block;
-	width:92%;
-	color:#919198;
-}
-
-.content_head {
-	width: 85%;
-	margin: 10px auto;
-}
-
-.content_head h2 {
-	text-align: center;
-}
-
-.content_head span {
-	font-weight: bold;
-}
-
-.content_img {
-	width: 85%;
-	margin:0 auto;
-	text-align: center;
-}
-
-.content_img img {
-	width: 600px;
-	height:500px;	
-}
-
-.content_text{
-	width:100%;
-	font-size:17px;
-}
-
-#content_text_inner{
-	overflow:auto;
-	position: relative;
-	padding-top:10px;
-	
-}
-
-
-.photo_like{
-	width:60%;
-	margin:0 auto;
-}
-
-.content_pre{
-	width:100%;
-	overflow: auto;
-	height:100px;
-	margin:0 auto;
-	position: relative;
-}
-
-.content_pre_inner{
-	margin:0 auto;
-	border:1px solid black;
-	width:72%;
-	height:95%;
-}
-.content_pre img{
-	width:100px;
-	height:100px;
-	margin:5px 10px;
-}
-
-#content_id_wrap{
-	width:90%;
-	margin: 10px auto;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-#content_id {
-	width:80%;
-	margin:0 auto;
-	position: relative;
-} 
-#content_id p {
-	margin:10px 0px;
-	font-size: 15px;
-	color:#919198;
-}
-
-.goUpdate {
-	padding: 9px 50px;
-	letter-spacing: 5px;
-	font-size: 15px;
-	float:right;
-	background:#9DCEBD;
- 	color:#fff;
-  	border:none;
-  	position:relative;
-  	cursor:pointer;
- 	transition:800ms ease all;
-  	outline:none;
-}
-
-.goUpdate:hover{
-	background:#fff;
-  color:#9DCEBD;
-}
-
-.goUpdate:before,.goUpdate:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #9DCEBD;
-  transition:400ms ease all;
-}
-.goUpdate:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.goUpdate:hover:before,.goUpdate:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-
-.pv_cmt_write{
-	
-	
-}
-
-.pv_comment_wrap {
-	width: 70%;
-	margin:3% auto;	
-	position:relative;
-}
-
-.pv_comment{
-	width: 80%;
-	margin:0 auto;
-	position:relative;
-}
-
-#openComt{
-	width:80%;
-	position: relative;
-	margin:25px auto;
-}
-
-#openComt button{
-	padding:10px 0px;
-	letter-spacing: 4px;
-	font-size:18px;
-	width:100%;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background-color:#FDD7EC;
-	color:#fff;
-	border-radius: 1px;
-}
-
-#openComt button:hover{
-	background-color:#F0B3E2;
-}
-
-.pv_cmt_write img{
-	margin: 0px 5px 0px 0px;
-	width: 40px;
-	height: 40px;
-	border-radius: 100px;
-	-moz-border-radius: 100px;
-	-webkit-border-radius: 100px;
-	-ms-border-radius: 100px;
-	-khtml-border-radius: 100px;
-	-o-border-radius: 100px;
-	border: 0;
-	vertical-align: middle;
-}
-
-.pv_cmt_write span{
-	vertical-align: middle;
-	margin-right: 10px;
-}
-
-.pv_cmt_write input{
-	vertical-align: middle;
-	width:65%;
-	border-left:none; 
-	border-bottom:1px solid gray;
-	border-right:none;
-	border-top:none;
-	font-size: 15px;
-	overflow: visible;
-	padding:10px;
-}
-
-.pv_cmt_write button{
-	vertical-align: middle;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background-color: #F0B3E2;
-	padding: 9px 15px;
-	letter-spacing: 2px;
-	font-size: 15px;
-	border-radius:1px;
-	color:#fff;
-}
-
-.pv_cmt_write button:hover{
-	background-color: #FDD7EC;
-}
-
-
-
-#pv_cmt_view{
-	width:100%;
-	position:relative;
-}
-
-
-#pv_cmt_view ul{
-	padding:0;
-}
-
-#pv_cmt_view ul li{
-	list-style:none;
-}
-
-#pv_cmt_view #replyImg{
-	margin:10px 20px 10px 10px; 
-}
-
-.addParent {
-	width:100%;
-	display: inline-block;
-}
-
-.addChild{
-	width:100%;
-	display:inline-block;
-	padding-left:5%;
-}
-
-.addParent img{
-margin: 0px 5px 0px 0px;
-	width: 40px;
-	height: 40px;
-	border-radius: 100px;
-	-moz-border-radius: 100px;
-	-webkit-border-radius: 100px;
-	-ms-border-radius: 100px;
-	-khtml-border-radius: 100px;
-	-o-border-radius: 100px;
-	border: 0;
-	vertical-align: middle;
-}
-
-.addParent span{
-	margin-right: 20px;
-}
-
-.addParent button{
-	margin-right: 10px;
-	padding:5px;
-}
-
-#relpyMark{
-	margin:0px 15px 0px 20px;
-}
-
-#replyMarkParent{
-	margin:0px 10x;
-	color:gray;
-}
 
 	
 
@@ -538,20 +164,27 @@ margin: 0px 5px 0px 0px;
 					var result = JSON.parse(data);
 					
 					$('#pv_cmt_view').appendTo(
-							'<div style="width:100%;margin-bottom:15px;"'+'"><img src='+'"profileDownload.do?M_ID='+result.id+'">'+
-							'<span>'+result.id+'</span>'+
-							'<span>'+result.content+'</span>'+
+							'<li><div class="addParent">'+ '<img src='+'"profileDownload.do?M_ID='+result.id+'">'+
+							'<span>'+result.id+'</span>'+'<span>'+result.content+'</span>'+
 							'<span id="date">'+result.date+'</span>'+
 							'<button id="update_commt">수정</button>'+
 							'<button id="delete_commt">삭제</button></div>'
-							);		
+					);
 					
-					if(result.parent==null){
-						$('#pv_cmt_view').addClass('addParent');
-					}else{
-						$('#pv_cmt_view').addClass('addParent').css('padding-left','5%');
-					}
+// 							if(result.parent!=null){
+// 								$('#pv_cmt_view').appendTo(
+// 								'<span id="relpyMark"> └ </span>'+
+// 								'<span id="replyMarkParent">'+ result.parent +'</span>'
+// 								);
+// 							}
+							
+// 							$('#pv_cmt_view').appendTo(
+							
+// 							);		
+					
+					
 				
+					
 // 					if(result.id!=id){
 // 						$('#update_commt').hide();
 // 						$('#delete_commt').hide();
@@ -567,17 +200,17 @@ margin: 0px 5px 0px 0px;
 			
 		});
 		
-		
+			
 		       $(".tg").each(function(){
-		           var timeago_t = jQuery.timeago( $(this).data("${i.PHT_COMMT_CREATE_DATE}"));
-		           $(this).text(timeago_t);
+			    	   var timeago_t = jQuery.timeago( $(this).data("date"));
+ 			           $(this).text(timeago_t);
 		        });
 		
 	});
 </script>
 </head>
 <body>
-	<div class="pv_container">
+<div class="pv_container">
 		<div class="pv_header">
 			<div id="btnBx1">
 				<button id="goPrev">이전 사진</button>
@@ -650,7 +283,7 @@ margin: 0px 5px 0px 0px;
 
 		<div class="pv_comment_wrap">
 			<div class="pv_comment">
-			<div id="pv_cmt_view" >
+			<div id="pv_cmt_view">
 			<c:forEach items="${CommentList}" var="i">
 			<ul>
 				<li><div class="addParent">
@@ -664,13 +297,14 @@ margin: 0px 5px 0px 0px;
 					<span>${i.COMMT_CONTENT}</span>
 					<c:choose>
 						<c:when test="${empty i.PHT_COMMT_UPDATE_DATE}">
-							<span>${i.PHT_COMMT_CREATE_DATE}</span>
+<%-- 							<input type="hidden" value="${i.PHT_COMMT_CREATE_DATE}" name="date"> --%>
+								<span class="tg" data-date="${i.PHT_COMMT_CREATE_DATE}"></span>
 						</c:when>
 						<c:otherwise>
-							<span>${i.PHT_COMMT_UPATE_DATE}</span>
+							<input type="hidden" value="${i.PHT_COMMT_UPDATE_DATE}" name="date">
 						</c:otherwise>
 					</c:choose>
-					<span class="tg"></span>
+					<span id="tg"></span>
 							<button id="update_commt">수정</button>
 							<button id="delete_commt">삭제</button>
 					</div></li>
@@ -693,7 +327,6 @@ margin: 0px 5px 0px 0px;
 			
 			</div>
 		
-
 
 </body>
 </html>

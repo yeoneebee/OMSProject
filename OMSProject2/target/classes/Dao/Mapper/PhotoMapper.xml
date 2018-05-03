@@ -77,9 +77,10 @@
 		#{COMMT_CONTENT,jdbcType=VARCHAR},
 		#{COMMT_PARENT},
 		#{M_ID,jdbcType=VARCHAR},
-		TO_DATE(SYSDATE,'yyyy/mm/ddhh24:mi:ss'),
+		#{PHT_COMMT_CREATE_DATE},
 		'',
-		'' )
+		'',
+		'')
 	</insert>
     
     <select id="getCommentsList" parameterType="PhotoVO" resultType="CommentVO">

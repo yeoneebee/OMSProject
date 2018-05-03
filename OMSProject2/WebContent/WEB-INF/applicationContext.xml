@@ -98,5 +98,4 @@
 <aop:advisor advice-ref="mytx" pointcut="execution(public * Service.*Service.*(..))"/>
 </aop:config>
 
-
 </beans>

@@ -12,7 +12,8 @@
   crossorigin="anonymous"></script>  
 <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">  
 <link rel="stylesheet" href="css/MyPage.css">
-<script type="text/javascript" src="jsp/Member/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/PlugIn/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/Js/MyPage.js"></script> 
 
 <style type="text/css">
 #Myheader{
@@ -25,103 +26,82 @@
 </style>
 
 <script type="text/javascript">
-
-	function init(){
-		var id= "<%= (String)session.getAttribute("id")%>";
-		 $.ajax({
-				url:'updateForm.do',
-				type:"POST",
-				cache : false,
-				data: "id="+id,
-				dataType:'text',
-		  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		     success: function(result){
-					var data= JSON.parse(result);
-					console.log(data.name);
-					
-					$('#name').val(data.name);
-					$('#idval').val(data.id);
-					$('#pw').val(data.pwd);
-
-					if(data.profile=="")
-						$('.imagePreview').css("content", "url(image/sample.png)");	
-					
-					var gender =data.gender;
-					if(gender=='1')
-				    	$(".select option:eq(1)").attr("selected", "selected");
-				    else if(gender=='2')
-				    	$(".select option:eq(2)").attr("selected", "selected");
-				    else if(gender=='3')
-				    	$(".select option:eq(3)").attr("selected", "selected");
-					
-					$('#age').val(data.age);
-					
-					var phone=$('#phone1').val(data.phone1);
-					if(phone=="010")
-				    	$(".phn-select option:eq(0)").attr("selected", "selected");
-				    else if(phone=="011")
-				    	$(".phn-select option:eq(1)").attr("selected", "selected");
-				    else if(phone=="019")
-				    	$(".phn-select option:eq(2)").attr("selected", "selected");	
-					
-					$('#phone2').val(data.phone2);
-					$('#phone3').val(data.phone3);
-					
-					var private = data.private;
-					if(private=="Y"){
-				    	$('#private').prop('checked',true);
-				    	$('#private').val('Y');
-				    }else{
-				    	$('#private').prop('checked',false);
-				    	$('#private').val('N');
-				    }
-					
-					var nation=data.nation;
-					if(nation=="대한민국")
-				    	$(".birthday_box option:eq(1)").attr("selected", "selected");
-				    else if(nation=="일본")
-				    	$(".birthday_box option:eq(2)").attr("selected", "selected");
-				    else if(nation=="미국")
-				    	$(".birthday_box option:eq(3)").attr("selected", "selected");
-					
-					$('#address').val(data.address);
-					$('#eId').val(data.eId);
-					$('#eAddress').val(data.eAddress);
+function init(){
+	var id= "<%= (String)session.getAttribute("id")%>";
+	 $.ajax({
+			url:'updateForm.do',
+			type:"POST",
+			cache : false,
+			data: "id="+id,
+			dataType:'text',
+	  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+	     success: function(result){
+				var data= JSON.parse(result);
+				console.log(data.name);
 				
-					
-					
-				},
-				error : function(request,status,error){
-					alert("code:"+request.status+"error:"+error);
-				}
-		});
-		 
-		 
-	}
+				$('#name').val(data.name);
+				$('#idval').val(data.id);
+				$('#pw').val(data.pwd);
+
+				if(data.profile=="")
+					$('.imagePreview').css("content", "url(image/sample.png)");	
+				
+				var gender =data.gender;
+				if(gender=='1')
+			    	$(".select option:eq(1)").attr("selected", "selected");
+			    else if(gender=='2')
+			    	$(".select option:eq(2)").attr("selected", "selected");
+			    else if(gender=='3')
+			    	$(".select option:eq(3)").attr("selected", "selected");
+				
+				$('#age').val(data.age);
+				
+				var phone=$('#phone1').val(data.phone1);
+				if(phone=="010")
+			    	$(".phn-select option:eq(0)").attr("selected", "selected");
+			    else if(phone=="011")
+			    	$(".phn-select option:eq(1)").attr("selected", "selected");
+			    else if(phone=="019")
+			    	$(".phn-select option:eq(2)").attr("selected", "selected");	
+				
+				$('#phone2').val(data.phone2);
+				$('#phone3').val(data.phone3);
+				
+				var private = data.private;
+				if(private=="Y"){
+			    	$('#private').prop('checked',true);
+			    	$('#private').val('Y');
+			    }else{
+			    	$('#private').prop('checked',false);
+			    	$('#private').val('N');
+			    }
+				
+				var nation=data.nation;
+				if(nation=="대한민국")
+			    	$(".birthday_box option:eq(1)").attr("selected", "selected");
+			    else if(nation=="일본")
+			    	$(".birthday_box option:eq(2)").attr("selected", "selected");
+			    else if(nation=="미국")
+			    	$(".birthday_box option:eq(3)").attr("selected", "selected");
+				
+				$('#address').val(data.address);
+				$('#eId').val(data.eId);
+				$('#eAddress').val(data.eAddress);
+			
+				
+				
+			},
+			error : function(request,status,error){
+				alert("code:"+request.status+"error:"+error);
+			}
+	});
+	 
+	 
+}
+	
 	
 $(document).ready(function(){
-	
 	var id= "<%= (String)session.getAttribute("id")%>";
-	
-	var menuPos = parseInt($('#MyMenuBox').css('top'));
-	
-	$(window).scroll(function(){
-		
-	var scrollTop = $(window).scrollTop();
-	var newPos = scrollTop + menuPos + "px";
-	
-	$('#MyMenuBox').stop().animate({
-		'top':newPos
-	},{
-		'duration' :500,
-		'easing': 'easeInOutBack',
-		'complete': function(){
-			console.log('이동완료');
-		}
-	});
-	
-}).scroll();
-
 	
 	$('#menu1').click(function(){
 		$('#contentSection').load("jsp/Member/MemberUpdateForm2.jsp");
@@ -132,27 +112,7 @@ $(document).ready(function(){
 		 url="myAlbum.do?id="+id+"&s_id="+id;
   	     window.open(url,"ChildAlbumWin","width=1200 height=700 top=30px left=180px");
 	});
-
-	
-	function changeText(cont1,cont2,speed){
-		var Otext=cont1.text();
-		var Ocontent=Otext.split("");
-		var i=0;
-		function show(){
-			if(i<Ocontent.length)
-			{		
-				cont2.append(Ocontent[i]);
-				i=i+1;
-			};
-		};
-			var Otimer=setInterval(show,speed);	
-	};
-	changeText($("h1"),$(".p2"),150);
-// 	clearInterval(Otimer);
-	});
-	
-
-
+});
 </script>
 
 </head>

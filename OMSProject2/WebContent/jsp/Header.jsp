@@ -93,13 +93,15 @@
 </div>
 </div>
 <div class="topmenu">
+<div class="topmenu_inner">
 <ul>
 <li onclick="location.href='recruit_main.do'">모집/계획</li>|
 <li onclick="location.href='review_Main.do'">여행정보/후기</li>|
 <li onclick="location.href='service_center_main.do'">고객센터</li>|
-<li id="icon"><i class="fas fa-search fa-3x"></i></li>
-<li id="icon"><i class="fas fa-align-justify fa-3x"></i></li>
+<li id="icon"><img src="image/loupe.png"></li>
+<li id="icon"><img src="image/menu.png"></li>
 </ul>
+</div>
 </div>
 </body>
 </html>

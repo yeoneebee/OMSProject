@@ -59,9 +59,11 @@ h1 {
 	width:82%;
 	height:100%;
 	margin:0;
-	padding:0;
+	padding:20px;
 	float:right;
 }
+
+
 
 #MenuSection{
 	width:10%;
@@ -69,7 +71,10 @@ h1 {
 	margin:0;
 	padding:0;
 	display: inline-block;
+	float: left;
 }
+
+
 
 
 .MyMenuBox a:link{
@@ -127,7 +132,8 @@ h1 {
 	margin:0;
 	padding:15px 0px;
 	position:relative;
-	background-color: #63cdd7;
+	background-color:#63cdd7;
 	box-shadow: 2px 2px 2px #ded8df;
 	 font-family: 'LotteMartDream';
 }
+

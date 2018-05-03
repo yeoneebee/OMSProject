@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/Join.css">
-<link rel="stylesheet" href="css/MyPage.css">
-
 <script
   src="http://code.jquery.com/jquery-2.2.4.js"
   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/Join.css">
+<link rel="stylesheet" href="css/MyPage.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/PlugIn/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/Js/MyPage.js"></script> 
+
  <style type="text/css">
  .prof_section .imagePreview {
   	content:url("");

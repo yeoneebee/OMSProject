@@ -9,8 +9,8 @@ public class CommentVO {
 	public String COMMT_CONTENT;
 	public int COMMT_PARENT;
 	public String M_ID;
-	public Date PHT_COMMT_CREATE_DATE;
-	public Date PHT_COMMT_UPDATE_DATE;
+	public String PHT_COMMT_CREATE_DATE;
+	public String PHT_COMMT_UPDATE_DATE;
 	public Date PHT_COMMT_DELETE_DATE;
 	public String PARENT_ID;
 	
@@ -33,7 +33,7 @@ public class CommentVO {
 	
 
 	public CommentVO(int cOMMT_NO, int pHOTO_NO, String cOMMT_CONTENT, int cOMMT_PARENT, String m_ID,
-			Date pHT_COMMT_CREATE_DATE, Date pHT_COMMT_UPDATE_DATE, Date pHT_COMMT_DELETE_DATE) {
+			String pHT_COMMT_CREATE_DATE, String pHT_COMMT_UPDATE_DATE, Date pHT_COMMT_DELETE_DATE) {
 		COMMT_NO = cOMMT_NO;
 		PHOTO_NO = pHOTO_NO;
 		COMMT_CONTENT = cOMMT_CONTENT;
@@ -78,16 +78,16 @@ public class CommentVO {
 	public void setM_ID(String m_ID) {
 		M_ID = m_ID;
 	}
-	public Date getPHT_COMMT_CREATE_DATE() {
+	public String getPHT_COMMT_CREATE_DATE() {
 		return PHT_COMMT_CREATE_DATE;
 	}
-	public void setPHT_COMMT_CREATE_DATE(Date pHT_COMMT_CREATE_DATE) {
+	public void setPHT_COMMT_CREATE_DATE(String pHT_COMMT_CREATE_DATE) {
 		PHT_COMMT_CREATE_DATE = pHT_COMMT_CREATE_DATE;
 	}
-	public Date getPHT_COMMT_UPDATE_DATE() {
+	public String getPHT_COMMT_UPDATE_DATE() {
 		return PHT_COMMT_UPDATE_DATE;
 	}
-	public void setPHT_COMMT_UPDATE_DATE(Date pHT_COMMT_UPDATE_DATE) {
+	public void setPHT_COMMT_UPDATE_DATE(String pHT_COMMT_UPDATE_DATE) {
 		PHT_COMMT_UPDATE_DATE = pHT_COMMT_UPDATE_DATE;
 	}
 	public Date getPHT_COMMT_DELETE_DATE() {
@@ -112,7 +112,7 @@ public class CommentVO {
 	public String toString() {
 		return "CommentVO [COMMT_NO=" + COMMT_NO + ", COMMT_CONTENT=" + COMMT_CONTENT + ",  M_ID=" + M_ID
 				+ ", PHOTO_NO=" + PHOTO_NO + ", M_ID=" + M_ID + 
-				", COMMT_PARENT" + COMMT_PARENT+
+				", COMMT_PARENT= " + COMMT_PARENT+ " DATE = " + PHT_COMMT_CREATE_DATE +
 				"]";
 			
 				
